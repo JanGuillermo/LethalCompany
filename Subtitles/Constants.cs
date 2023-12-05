@@ -97,6 +97,7 @@ public class Constants
         { "Roar_0", "Roars" },
         { "SandWormRoar", "Sand worm roars" },
         { "SandWormRoar2", "Sand worm roars" },
+        { "Scan", "Scan activates" },
         { "ShortRoar1", "Short roars" },
         { "Shriek1", "Shrieks" },
         { "Shriek2", "Shrieks" },

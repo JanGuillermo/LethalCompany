@@ -31,7 +31,7 @@ public class Plugin : BaseUnityPlugin
         minimumAudibleVolume = Config.Bind<float>(
             "​Options",
             "MinimumAudibleVolume",
-            2f,
+            12f,
             "The minimum volume this mod determines is audible. Scale of 0-100. Any sound heard above this volume will be displayed on subtitles, any sound below will not.");
         logSoundNames = Config.Bind<bool>(
             "Contributors/Developers",

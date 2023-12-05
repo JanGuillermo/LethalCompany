@@ -10,7 +10,7 @@ using System.Linq;
 namespace Subtitles;
 
 [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
-public class Plugin : BaseUnityPlugin
+public class SubtitlesMod : BaseUnityPlugin
 {
     private const string pluginGuid = "JustJelly.Subtitles";
     private const string pluginName = "Subtitles";
@@ -18,11 +18,11 @@ public class Plugin : BaseUnityPlugin
 
     private Harmony harmony;
 
-    public static Plugin Instance;
+    public static SubtitlesMod Instance;
     public static ManualLogSource ManualLogSource;
 
     public SubtitleList subtitles = [];
-    public ILocalizationTable LocalizationTable;
+    public static ILocalizationTable LocalizationTable;
 
     public static ConfigEntry<string> selectedLocale;
 

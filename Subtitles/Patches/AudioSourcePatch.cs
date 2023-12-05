@@ -44,18 +44,18 @@ public class AudioSourcePatch
     private static void AddSubtitle(AudioClip clip)
     {
         if (clip?.name is null ||
-            !Plugin.Instance.LocalizationTable.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
+            !SubtitlesMod.Instance.LocalizationTable.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
         {
             if (clip is not null)
             {
-                Plugin.ManualLogSource.LogInfo($"No translation for {clip.name}.");
+                SubtitlesMod.ManualLogSource.LogInfo($"No translation for {clip.name}.");
             }
 
             return;
         };
 
-        Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
-        Plugin.Instance.subtitles.Add(new Subtitle(translation));
+        SubtitlesMod.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
+        SubtitlesMod.Instance.subtitles.Add(new Subtitle(translation));
     }
 
     private static bool IsInWithinAudiableDisable(AudioSource source, float volume)

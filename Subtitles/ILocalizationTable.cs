@@ -34,5 +34,24 @@ namespace Subtitles
             Translations.Add(sound, subtitle);
             return true;
         }
+
+        /// <summary>
+        /// Utilize this to add any custom sounds to the subtitles. Meant for mod developers.
+        /// </summary>
+        /// <param name="translationsToAdd">A dictionary of the filenames and subtitles of played sounds.</param>
+        /// <returns>(bool[]) An array of whether each subtitle was able to be added.</returns>
+        bool[] AddSound(Dictionary<string, string> translationsToAdd)
+        {
+            bool[] added = new bool[translationsToAdd.Count];
+            var i = 0;
+
+            foreach (var translation in translationsToAdd)
+            {
+                added[i] = AddSound(translation.Key, translation.Value);
+                i++;
+            }
+
+            return added;
+        }
     }
 }

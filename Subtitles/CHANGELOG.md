@@ -2,7 +2,8 @@
 
 ## 1.1.2
 
-
+- Update versions appropriately
+- Subtitle tweaks
 
 ## 1.1.1 - 2023-12-05
 

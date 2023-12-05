@@ -8,7 +8,7 @@ namespace Subtitles;
 
 public class SubtitleList : IList<Subtitle>
 {
-    private readonly List<Tuple<DateTime, Subtitle>> collection = [];
+    private volatile List<Tuple<DateTime, Subtitle>> collection = [];
     private readonly Timer timer;
     private readonly TimeSpan expiration;
 

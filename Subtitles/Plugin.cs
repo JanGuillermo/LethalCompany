@@ -29,12 +29,12 @@ public class Plugin : BaseUnityPlugin
         ManualLogSource.LogInfo($"{pluginName} {pluginVersion} loaded!");
 
         minimumAudibleVolume = Config.Bind<float>(
-            "Options",
+            "​Options",
             "MinimumAudibleVolume",
             2f,
             "The minimum volume this mod determines is audible. Scale of 0-100. Any sound heard above this volume will be displayed on subtitles, any sound below will not.");
         logSoundNames = Config.Bind<bool>(
-            "Options",
+            "Contributors/Developers",
             "LogSoundNames",
             false,
             "Whether the mod should log the names of sounds. Only valuable if trying to add more subtitles / localization.");

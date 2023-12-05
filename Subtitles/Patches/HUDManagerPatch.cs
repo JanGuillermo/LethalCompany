@@ -43,7 +43,7 @@ public class HUDManagerPatch
     private static string GetLatestSubtitles()
     {
         StringBuilder stringBuilder = new();
-        IList<string> latestSubtitles = Plugin.Instance.subtitles.TakeLast(Constants.DefaultVisibleSubtitleLines).Select(subtitle => subtitle.Text).ToList();
+        IList<string> latestSubtitles = SubtitlesMod.Instance.subtitles.TakeLast(Constants.DefaultVisibleSubtitleLines).Select(subtitle => subtitle.Text).ToList();
         string delimiter = string.Empty;
 
         foreach (string subtitle in latestSubtitles)

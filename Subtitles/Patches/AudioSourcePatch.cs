@@ -44,7 +44,7 @@ public class AudioSourcePatch
     private static void AddSubtitle(AudioClip clip)
     {
         if (clip?.name is null ||
-            !SubtitlesMod.Instance.LocalizationTable.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
+            !SubtitlesMod.LocalizationTable.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
         {
             if (clip is not null)
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SubtitlesAPI.Locales;
 
-public class EnglishSubtitles : ILocalization
+public class EnglishSubtitleLocalization : ISubtitleLocalization
 {
     public string Locale => "en";
 

@@ -3,9 +3,9 @@
 namespace SubtitlesAPI;
 
 /// <summary>
-/// An interface to easily implement new localizations
+/// An interface to easily implement new subtitle localizations
 /// </summary>
-public interface ILocalization
+public interface ISubtitleLocalization
 {
     /// <summary>
     /// What locale this translation applies to.

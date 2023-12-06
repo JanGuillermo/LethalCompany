@@ -17,7 +17,7 @@ public class SubtitlesAPI : BaseUnityPlugin
 
     public static ManualLogSource ManualLogSource;
 
-    public static ILocalization Localization;
+    public static ISubtitleLocalization Localization;
     public static ConfigEntry<string> SelectedLocale;
 
     private void Awake()
@@ -31,11 +31,11 @@ public class SubtitlesAPI : BaseUnityPlugin
             defaultValue: "en",
             description: "The localization to use. This uses ISO 639-1 codes for locales. \nCurrent Supported Codes: en");
 
-        IEnumerable<Type> allLocalizations = GetAllClassesImplementingInterface<ILocalization>();
+        IEnumerable<Type> allLocalizations = GetAllClassesImplementingInterface<ISubtitleLocalization>();
 
         foreach (Type localization in allLocalizations)
         {
-            ILocalization tempLocalization = (ILocalization)Activator.CreateInstance(localization);
+            ISubtitleLocalization tempLocalization = (ISubtitleLocalization)Activator.CreateInstance(localization);
 
             if (string.Equals(SelectedLocale.Value, tempLocalization.Locale, StringComparison.OrdinalIgnoreCase))
             {
@@ -46,7 +46,7 @@ public class SubtitlesAPI : BaseUnityPlugin
 
         if (Localization is null)
         {
-            Localization = new EnglishSubtitles();
+            Localization = new EnglishSubtitleLocalization();
 
             ManualLogSource.LogWarning("Unable to find chosen locale, defaulted to English");
         }

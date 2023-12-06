@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using GameNetcodeStuff;
 using HarmonyLib;
 using UnityEngine;
@@ -46,7 +47,7 @@ public class AudioSourcePatch
         if (clip?.name is null ||
             !Constants.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
         {
-            if (clip is not null)
+            if (clip is not null && Plugin.Instance.logSoundNames.Value)
             {
                 Plugin.ManualLogSource.LogInfo($"No translation for {clip.name}.");
             }
@@ -54,7 +55,8 @@ public class AudioSourcePatch
             return;
         };
 
-        Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
+        if (Plugin.Instance.logSoundNames.Value)
+            Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
         Plugin.Instance.subtitles.Add(new Subtitle(translation));
     }
 
@@ -71,6 +73,43 @@ public class AudioSourcePatch
 
         float distance = Vector3.Distance(playerController.transform.position, source.transform.position);
 
-        return distance <= source.maxDistance;
+        float audibleVolume = EvaluateVolumeAt(source, distance)*volume;
+
+        //Plugin.ManualLogSource.LogInfo($"{audibleVolume/volume}; {audibleVolume}; {volume}; {distance}; {source.minDistance}; {source.maxDistance}; {source.rolloffMode}");
+
+        return audibleVolume >= (Plugin.Instance.minimumAudibleVolume.Value / 100);
+    }
+
+    private static float EvaluateVolumeAt(AudioSource source, float distance)
+    {
+        AnimationCurve curve = null;
+        float range = source.maxDistance - source.minDistance;
+
+        if (distance < source.minDistance)
+            return 1;
+        if (distance > source.maxDistance)
+            return 0;
+
+
+        switch (source.rolloffMode)
+        {
+            case AudioRolloffMode.Linear:
+                curve = AnimationCurve.Linear(0, 1, 1, 0);
+                break;
+            case AudioRolloffMode.Logarithmic:
+                // My best guess at what the logarithmic curve is
+                curve = new(new(0, 1), new(range / 4, 1 / (source.minDistance + range / 4)), new(range / 2, 1 / (source.minDistance + range / 2)), new(3 * range / 4, 1 / (source.minDistance + 3 * range / 4)), new(1, 0));
+                break;
+            case AudioRolloffMode.Custom:
+                curve = source.GetCustomCurve(AudioSourceCurveType.CustomRolloff);
+                break;
+        }
+
+        if (curve == null)
+            return 1;
+
+        float evalutationDistance = (distance - source.minDistance) / range;
+
+        return curve.Evaluate(evalutationDistance);
     }
 }

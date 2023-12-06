@@ -44,6 +44,28 @@ public class AudioSourcePatch
         }
     }
 
+    [HarmonyPrefix]
+    [HarmonyPatch(nameof(AudioSource.Play), new[] { typeof(double) })]
+    public static void PlayDelayed_Prefix(AudioSource __instance)
+    {
+        if (__instance.clip == null) return;
+        if (IsInWithinAudiableDisable(__instance, __instance.volume))
+        {
+            AddSubtitle(__instance.clip);
+        }
+    }
+
+    [HarmonyPrefix]
+    [HarmonyPatch(nameof(AudioSource.Play), new System.Type[] { })]
+    public static void Play_Prefix(AudioSource __instance)
+    {
+        if (__instance.clip == null) return;
+        if (IsInWithinAudiableDisable(__instance, __instance.volume))
+        {
+            AddSubtitle(__instance.clip);
+        }
+    }
+
     private static void AddSubtitle(AudioClip clip)
     {
         if (clip?.name is null ||

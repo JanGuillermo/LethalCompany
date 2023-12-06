@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using GameNetcodeStuff;
 using HarmonyLib;
 using UnityEngine;
@@ -56,7 +55,10 @@ public class AudioSourcePatch
         };
 
         if (Plugin.Instance.logSoundNames.Value)
+        {
             Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
+        }
+
         Plugin.Instance.subtitles.Add(new Subtitle(translation));
     }
 
@@ -72,10 +74,7 @@ public class AudioSourcePatch
         PlayerControllerB playerController = (!isPlayerDead || !isSpeculating) ? GameNetworkManager.Instance.localPlayerController : GameNetworkManager.Instance.localPlayerController.spectatedPlayerScript;
 
         float distance = Vector3.Distance(playerController.transform.position, source.transform.position);
-
-        float audibleVolume = EvaluateVolumeAt(source, distance)*volume;
-
-        //Plugin.ManualLogSource.LogInfo($"{audibleVolume/volume}; {audibleVolume}; {volume}; {distance}; {source.minDistance}; {source.maxDistance}; {source.rolloffMode}");
+        float audibleVolume = EvaluateVolumeAt(source, distance) * volume;
 
         return audibleVolume >= (Plugin.Instance.minimumAudibleVolume.Value / 100);
     }
@@ -86,10 +85,14 @@ public class AudioSourcePatch
         float range = source.maxDistance - source.minDistance;
 
         if (distance < source.minDistance)
+        {
             return 1;
-        if (distance > source.maxDistance)
-            return 0;
+        }
 
+        if (distance > source.maxDistance)
+        {
+            return 0;
+        }
 
         switch (source.rolloffMode)
         {
@@ -105,8 +108,10 @@ public class AudioSourcePatch
                 break;
         }
 
-        if (curve == null)
+        if (curve is null)
+        {
             return 1;
+        }
 
         float evalutationDistance = (distance - source.minDistance) / range;
 

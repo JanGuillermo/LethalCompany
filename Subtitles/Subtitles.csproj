@@ -24,6 +24,9 @@
 	  <Reference Include="Assembly-CSharp">
 	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Assembly-CSharp.dll</HintPath>
 	  </Reference>
+	  <Reference Include="SubtitlesAPI">
+	    <HintPath>..\SubtitlesAPI\bin\Debug\netstandard2.1\SubtitlesAPI.dll</HintPath>
+	  </Reference>
 	  <Reference Include="Unity.Netcode.Runtime">
 	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
 	  </Reference>

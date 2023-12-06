@@ -6,6 +6,7 @@ using HarmonyLib;
 namespace Subtitles;
 
 [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
+//[BepInDependency("JustJelly.SubtitlesAPI")]
 public class Plugin : BaseUnityPlugin
 {
     private const string pluginGuid = "JustJelly.Subtitles";

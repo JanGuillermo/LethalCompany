@@ -2,7 +2,10 @@
 using System.Linq;
 using GameNetcodeStuff;
 using HarmonyLib;
+using SubtitlesAPI;
+using SubtitlesAPI.Locales;
 using UnityEngine;
+using static SubtitlesAPI.SubtitlesAPI;
 
 namespace Subtitles.Patches;
 
@@ -44,7 +47,7 @@ public class AudioSourcePatch
     private static void AddSubtitle(AudioClip clip)
     {
         if (clip?.name is null ||
-            !Constants.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
+            !Localization.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
         {
             if (clip is not null && Plugin.Instance.logSoundNames.Value)
             {

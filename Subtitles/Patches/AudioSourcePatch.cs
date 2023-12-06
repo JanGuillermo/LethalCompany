@@ -2,8 +2,6 @@
 using System.Linq;
 using GameNetcodeStuff;
 using HarmonyLib;
-using SubtitlesAPI;
-using SubtitlesAPI.Locales;
 using UnityEngine;
 using static SubtitlesAPI.SubtitlesAPI;
 
@@ -84,7 +82,7 @@ public class AudioSourcePatch
             Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
         }
 
-        Plugin.Instance.subtitles.Add(new Subtitle(translation));
+        Plugin.Instance.subtitles.Add(translation);
     }
 
     private static bool IsInWithinAudiableDisable(AudioSource source, float volume)

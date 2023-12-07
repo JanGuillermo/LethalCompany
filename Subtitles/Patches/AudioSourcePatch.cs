@@ -72,34 +72,51 @@ public class AudioSourcePatch
             return;
         }
 
-        if (Localization.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string soundTranslation))
+        string clipName = Path.GetFileNameWithoutExtension(clip.name);
+
+        if (Localization.Translations.TryGetValue(clipName, out string soundTranslation))
         {
             if (Plugin.Instance.logSoundNames.Value)
             {
-                Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
+                Plugin.ManualLogSource.LogInfo($"Found translation for {clipName}!");
             }
 
-            Plugin.Instance.subtitles.Add($"[{soundTranslation}]");
+            Plugin.Instance.subtitles.Add(FormatSoundTranslation(soundTranslation));
         }
-        else if (Localization.DialogueTranslations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out List<(float, string)> translations))
+        else if (Localization.DialogueTranslations.TryGetValue(clipName, out List<(float, string)> translations))
         {
             if (Plugin.Instance.logSoundNames.Value)
             {
-                Plugin.ManualLogSource.LogInfo($"Found dialogue translation for {clip.name}!");
+                Plugin.ManualLogSource.LogInfo($"Found dialogue translation for {clipName}!");
             }
 
             foreach ((float startTimestamp, string timedTranslation) in translations)
             {
-                Plugin.Instance.subtitles.Add(timedTranslation, startTimestamp);
+                Plugin.Instance.subtitles.Add(ForamtDialogueTranslation(timedTranslation), startTimestamp);
             }
         }
         else
         {
             if (Plugin.Instance.logSoundNames.Value)
             {
-                Plugin.ManualLogSource.LogInfo($"No translation for {clip.name}.");
+                Plugin.ManualLogSource.LogInfo($"No translation for {clipName}.");
             }
         }
+    }
+
+    private static string FormatSoundTranslation(string translation)
+    {
+        if (translation.StartsWith("[") && translation.EndsWith("]"))
+        {
+            return $"<color=yellow>{translation}<color>";
+        }
+
+        return $"<color=yellow>[{translation}]<color>";
+    }
+
+    private static string ForamtDialogueTranslation(string translation)
+    {
+        return $"<color=blue>{translation}<color>";
     }
 
     private static bool IsInWithinAudiableDisable(AudioSource source, float volume)

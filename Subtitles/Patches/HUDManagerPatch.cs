@@ -26,7 +26,6 @@ public class HUDManagerPatch
         rectTransform.anchoredPosition = new Vector2(0, -125);
 
         textComponent.alignment = TextAlignmentOptions.Center;
-        textComponent.color = Color.yellow;
         textComponent.font = __instance.controlTipLines[0].font;
         textComponent.fontSize = 14f;
 

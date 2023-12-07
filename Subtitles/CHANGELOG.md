@@ -1,5 +1,26 @@
 # Changelog
 
+## 2.0.1 - 2023-12-06
+
+### Added
+
+- Dialogue translations
+
+### Updated
+
+- Update to SubtitlesAPI 0.0.1
+
+## 2.0.0 - 2023-12-06
+
+### Added
+
+- A new dependency on [SubtitlesAPI](https://github.com/JanGuillermo/LethalCompany/tree/main/SubtitlesAPI) ([`207cef4`](https://github.com/JanGuillermo/LethalCompany/commit/207cef4a574364d7b1da9974a8ac4c016dff2f38), [@Xilophor](https://github.com/Xilophor))
+- Added more AudioSource patches. ([`8aa12d7`](https://github.com/JanGuillermo/LethalCompany/commit/8aa12d7f8fd437ee006b98a720721af084cd76dd), [@legoandmars](https://github.com/legoandmars))
+
+### Removed
+
+- Subtitle configuration as that has been extracted into [SubtitlesAPI](https://github.com/JanGuillermo/LethalCompany/tree/main/SubtitlesAPI)
+
 ## 1.2.0 - 2023-12-05
 
 ### Updated

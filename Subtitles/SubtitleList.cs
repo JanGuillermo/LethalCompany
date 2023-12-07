@@ -6,9 +6,9 @@ using System.Timers;
 
 namespace Subtitles;
 
-public class SubtitleList : IList<Subtitle>
+public class SubtitleList : IList<string>
 {
-    private volatile List<Tuple<DateTime, Subtitle>> collection = [];
+    private volatile List<Tuple<DateTime, string>> collection = [];
     private readonly Timer timer;
     private readonly TimeSpan expiration;
 
@@ -35,13 +35,23 @@ public class SubtitleList : IList<Subtitle>
         }
     }
 
-    public Subtitle this[int index]
+    public List<string> TakeLast(int number)
     {
-        get { return collection[index].Item2; }
-        set { collection[index] = new Tuple<DateTime, Subtitle>(DateTime.Now, value); }
+        return collection
+            .Where(element => DateTime.Now >= element.Item1)
+            .OrderBy(element => element.Item1)
+            .Select(element => element.Item2)
+            .TakeLast(number)
+            .ToList();
     }
 
-    public IEnumerator<Subtitle> GetEnumerator()
+    public string this[int index]
+    {
+        get { return collection[index].Item2; }
+        set { collection[index] = new Tuple<DateTime, string>(DateTime.Now, value); }
+    }
+
+    public IEnumerator<string> GetEnumerator()
     {
         return collection.Select(x => x.Item2).GetEnumerator();
     }
@@ -51,9 +61,14 @@ public class SubtitleList : IList<Subtitle>
         return collection.Select(x => x.Item2).GetEnumerator();
     }
 
-    public void Add(Subtitle item)
+    public void Add(string item)
     {
-        collection.Add(new Tuple<DateTime, Subtitle>(DateTime.Now, item));
+        collection.Add(new Tuple<DateTime, string>(DateTime.Now, item));
+    }
+
+    public void Add(string item, float seconds)
+    {
+        collection.Add(new Tuple<DateTime, string>(DateTime.Now.AddSeconds(seconds), item));
     }
 
     public int Count => collection.Count;
@@ -62,7 +77,7 @@ public class SubtitleList : IList<Subtitle>
 
     public bool IsReadOnly => false;
 
-    public void CopyTo(Subtitle[] array, int index)
+    public void CopyTo(string[] array, int index)
     {
         for (int i = 0; i < collection.Count; i++)
         {
@@ -70,13 +85,13 @@ public class SubtitleList : IList<Subtitle>
         }
     }
 
-    public bool Remove(Subtitle item)
+    public bool Remove(string item)
     {
         bool contained = Contains(item);
 
         for (int i = collection.Count - 1; i >= 0; i--)
         {
-            if ((object)collection[i].Item2 == (object)item)
+            if (collection[i].Item2 == item)
             {
                 collection.RemoveAt(i);
             }
@@ -90,11 +105,11 @@ public class SubtitleList : IList<Subtitle>
         collection.RemoveAt(i);
     }
 
-    public bool Contains(Subtitle item)
+    public bool Contains(string item)
     {
         for (int i = 0; i < collection.Count; i++)
         {
-            if ((object)collection[i].Item2 == (object)item)
+            if (collection[i].Item2 == item)
             {
                 return true;
             }
@@ -103,16 +118,16 @@ public class SubtitleList : IList<Subtitle>
         return false;
     }
 
-    public void Insert(int index, Subtitle item)
+    public void Insert(int index, string item)
     {
-        collection.Insert(index, new Tuple<DateTime, Subtitle>(DateTime.Now, item));
+        collection.Insert(index, new Tuple<DateTime, string>(DateTime.Now, item));
     }
 
-    public int IndexOf(Subtitle item)
+    public int IndexOf(string item)
     {
         for (int i = 0; i < collection.Count; i++)
         {
-            if ((object)collection[i].Item2 == (object)item)
+            if (collection[i].Item2 == item)
             {
                 return i;
             }

@@ -26,7 +26,6 @@ public class HUDManagerPatch
         rectTransform.anchoredPosition = new Vector2(0, -125);
 
         textComponent.alignment = TextAlignmentOptions.Center;
-        textComponent.color = Color.yellow;
         textComponent.font = __instance.controlTipLines[0].font;
         textComponent.fontSize = 14f;
 
@@ -43,13 +42,13 @@ public class HUDManagerPatch
     private static string GetLatestSubtitles()
     {
         StringBuilder stringBuilder = new();
-        IList<string> latestSubtitles = Plugin.Instance.subtitles.TakeLast(Constants.DefaultVisibleSubtitleLines).Select(subtitle => subtitle.Text).ToList();
+        IList<string> latestSubtitles = Plugin.Instance.subtitles.TakeLast(Constants.DefaultVisibleSubtitleLines).ToList();
         string delimiter = string.Empty;
 
         foreach (string subtitle in latestSubtitles)
         {
             stringBuilder.Append(delimiter);
-            stringBuilder.Append($"[{subtitle}]");
+            stringBuilder.Append(subtitle);
 
             delimiter = Constants.HtmlLineBreakTag;
         }

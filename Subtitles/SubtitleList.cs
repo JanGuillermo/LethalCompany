@@ -35,6 +35,16 @@ public class SubtitleList : IList<string>
         }
     }
 
+    public List<string> TakeLast(int number)
+    {
+        return collection
+            .Where(element => DateTime.Now >= element.Item1)
+            .OrderBy(element => element.Item1)
+            .Select(element => element.Item2)
+            .TakeLast(number)
+            .ToList();
+    }
+
     public string this[int index]
     {
         get { return collection[index].Item2; }
@@ -54,6 +64,11 @@ public class SubtitleList : IList<string>
     public void Add(string item)
     {
         collection.Add(new Tuple<DateTime, string>(DateTime.Now, item));
+    }
+
+    public void Add(string item, float seconds)
+    {
+        collection.Add(new Tuple<DateTime, string>(DateTime.Now.AddSeconds(seconds), item));
     }
 
     public int Count => collection.Count;

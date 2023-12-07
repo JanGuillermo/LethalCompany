@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using GameNetcodeStuff;
 using HarmonyLib;
@@ -66,23 +67,39 @@ public class AudioSourcePatch
 
     private static void AddSubtitle(AudioClip clip)
     {
-        if (clip?.name is null ||
-            !Localization.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string translation))
+        if (clip?.name is null)
         {
-            if (clip is not null && Plugin.Instance.logSoundNames.Value)
+            return;
+        }
+
+        if (Localization.Translations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out string soundTranslation))
+        {
+            if (Plugin.Instance.logSoundNames.Value)
+            {
+                Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
+            }
+
+            Plugin.Instance.subtitles.Add($"[{soundTranslation}]");
+        }
+        else if (Localization.DialogueTranslations.TryGetValue(Path.GetFileNameWithoutExtension(clip.name), out List<(float, string)> translations))
+        {
+            if (Plugin.Instance.logSoundNames.Value)
+            {
+                Plugin.ManualLogSource.LogInfo($"Found dialogue translation for {clip.name}!");
+            }
+
+            foreach ((float startTimestamp, string timedTranslation) in translations)
+            {
+                Plugin.Instance.subtitles.Add(timedTranslation, startTimestamp);
+            }
+        }
+        else
+        {
+            if (Plugin.Instance.logSoundNames.Value)
             {
                 Plugin.ManualLogSource.LogInfo($"No translation for {clip.name}.");
             }
-
-            return;
-        };
-
-        if (Plugin.Instance.logSoundNames.Value)
-        {
-            Plugin.ManualLogSource.LogInfo($"Found translation for {clip.name}!");
         }
-
-        Plugin.Instance.subtitles.Add(translation);
     }
 
     private static bool IsInWithinAudiableDisable(AudioSource source, float volume)

@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.1 - 2023-12-06
+
+### Added
+
+- Dialogue translations
+
+### Updated
+
+- Update to SubtitlesAPI 0.0.1
+
 ## 2.0.0 - 2023-12-06
 
 ### Added

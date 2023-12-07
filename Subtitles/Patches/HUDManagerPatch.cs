@@ -49,7 +49,7 @@ public class HUDManagerPatch
         foreach (string subtitle in latestSubtitles)
         {
             stringBuilder.Append(delimiter);
-            stringBuilder.Append($"[{subtitle}]");
+            stringBuilder.Append(subtitle);
 
             delimiter = Constants.HtmlLineBreakTag;
         }

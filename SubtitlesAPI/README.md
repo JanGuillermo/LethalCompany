@@ -25,9 +25,18 @@ catch
 
 No need to even require players to use this mod!
 
-There is one method with an overflow that you can use: <br>`SubtitlesAPI.Localization.AddTranslation(string soundFileName, string subtitleText);` and `SubtitlesAPI.Localization.AddSound(Dictionary<string, string>);`<br>Where `Dictionary<string, string>` is a dictionary with `Key: soundFileName`, `Value: subtitleText`.
+### Methods
 
-The method will return a boolean, or list of booleans for the dictionary. The result will be true if the mod was able to add the subtitle, and false if not - which is likely due to the translation for the soundFileName already being created. Maybe another mod has the same sound file name?
+- `SubtitlesAPI.Localization.AddTranslation(string soundFileName, string subtitleText);`
+- `SubtitlesAPI.Localization.AddTranslation(Dictionary<string, string>);`
+  - Where `Dictionary<string, string>` is a dictionary with `Key: soundFileName`, `Value: subtitleText`.
+- `SubtitlesAPI.Localization.AddDialogueTranslation(string sound, List<(float, string)> subtitles);`
+- `SubtitlesAPI.Localization.AddDialogueTranslation(Dictionary<string, List<(float, string)>> translationsToAdd);`
+  - Where `Dictionary<string, List<(float, string)>>` is a dictionary with `Key: soundFileName`, `Value: subtitles`.
+
+The method will return a boolean, or list of booleans for the dictionary.
+
+The result will be true if the mod was able to add the subtitle, and false if not - which is likely due to the translation for the soundFileName already being created. Maybe another mod has the same sound file name?
 
 ## Contributing
 
@@ -35,10 +44,33 @@ Do you want to add or change any subtitles? Do you want to create a new locale f
 
 ### Additional Subtitles
 
-Open up the locale you want to modify (ex. EnglishSubtitleLocalization.cs), and add to the dictionary! The dictionary uses the following format for new entries:
+Open up the locale you want to modify (ex. EnglishSubtitleLocalization.cs), and add to the dictionary!
 
-```json
+### SubtitlesAPI.Localization.Translations
+
+The dictionary uses the following format for new entries:
+
+```cs
 { "SoundFileName" , "Subtitle to add" },
+```
+
+### SubtitlesAPI.Localization.DialogueTranslations
+
+The dictionary uses the following format for new entries:
+
+```cs
+{
+  "F0DaysLeftAlert",
+  new()
+  {
+    (0, "[Company Jingle plays]"),
+    (4.969f, "Report to the company building immediately"),
+    (7.189f, "to sell your scrap metal and other goods."),
+    (9.758f, "You have zero days left to meet the profit quota."),
+    (13.085f, "You can use the terminal to route"),
+    (14.874f, "the autopilot to the company building."),
+  }
+},
 ```
 
 ### New Locales
@@ -55,5 +87,21 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
   public Dictionary<string, string> Translations => new(StringComparer.OrdinalIgnoreCase) {
     { "AirHorn1", "Air horn plays" },
   }
+
+  public Dictionary<string, List<(float, string)>> DialogueTranslations => new(StringComparer.OrdinalIgnoreCase)
+    {
+      {
+        "F0DaysLeftAlert",
+        new()
+        {
+          (0, "[Company Jingle plays]"),
+          (4.969f, "Report to the company building immediately"),
+          (7.189f, "to sell your scrap metal and other goods."),
+          (9.758f, "You have zero days left to meet the profit quota."),
+          (13.085f, "You can use the terminal to route"),
+          (14.874f, "the autopilot to the company building."),
+        }
+      },
+    };
 }
 ```

@@ -184,4 +184,20 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "VentCrawl1", "Vent noises" },
         { "VentOpen1", "Vent opens" },
     };
+
+    public Dictionary<string, List<(float, string)>> DialogueTranslations => new(StringComparer.OrdinalIgnoreCase)
+    {
+        {
+            "0DaysLeftAlert",
+            new()
+            {
+                (0, "[Company Jingle plays]"),
+                (4.969f, "Report to the company building immediately"),
+                (7.189f, "to sell your scrap metal and other goods."),
+                (9.758f, "You have zero days left to meet the profit quota."),
+                (13.085f, "You can use the terminal to route"),
+                (14.874f, "the autopilot to the company building."),
+            }
+        },
+    };
 }

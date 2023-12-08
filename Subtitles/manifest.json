@@ -1,6 +1,6 @@
 {
     "name": "Subtitles",
-    "version_number": "2.0.1",
+    "version_number": "2.0.2",
     "website_url": "https://github.com/JanGuillermo/LethalCompany",
     "description": "Displays text for in-game sounds to help make the game more accessible for Deaf/HoH gamers.",
     "dependencies": [

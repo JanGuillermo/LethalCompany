@@ -108,15 +108,20 @@ public class AudioSourcePatch
     {
         if (translation.StartsWith("[") && translation.EndsWith("]"))
         {
-            return $"<color=yellow>{translation}<color>";
+            return $"<color=yellow>{translation}</color>";
         }
 
-        return $"<color=yellow>[{translation}]<color>";
+        return $"<color=yellow>[{translation}]</color>";
     }
 
     private static string ForamtDialogueTranslation(string translation)
     {
-        return $"<color=blue>{translation}<color>";
+        if (translation.StartsWith("[") && translation.EndsWith("]"))
+        {
+            return FormatSoundTranslation(translation);
+        }
+
+        return $"<color=green>{translation}</color>";
     }
 
     private static bool IsInWithinAudiableDisable(AudioSource source, float volume)

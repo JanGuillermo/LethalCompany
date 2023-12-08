@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2 - 2023-12-07
+
+### Added
+
+- Separate colors for sounds and dialogue
+
 ## 2.0.1 - 2023-12-06
 
 ### Added

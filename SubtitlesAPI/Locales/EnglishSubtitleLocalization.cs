@@ -45,6 +45,7 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "BurrowingRumble1", "Ground rumbles" },
         { "BurrowingRumble2", "Ground rumbles" },
         { "BurrowingRumble3", "Ground rumbles" },
+        { "CashRegisterDing", "Cash register dings" },
         { "CawScream1", "Hawk screeches" },
         { "CawScream2", "Hawk screeches" },
         { "CawScream3", "Hawk screeches" },
@@ -139,6 +140,7 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "RattleTail", "Rattling tail" },
         { "Roar", "Giant Rumbles" },
         { "Roar_0", "Dog roars" },
+        { "RobotToyCheer", "Robot toy cheers" },
         { "SandWormRoar", "Earth Leviathan roars" },
         { "SandWormRoar2", "Earth Leviathan roars" },
         { "Scan", "Scan activates" },
@@ -171,11 +173,13 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "Squeak1", "Squeaks" },
         { "Squeak2", "Squeaks" },
         { "StickyNote", "Paper rustling" },
+        { "Stomp", "Stomps" },
         { "Stomp1", "Stomps" },
         { "Stomp1double", "Stomps" },
         { "Stomp2", "Stomps" },
         { "Stomp2double", "Stomps" },
         { "Stomp3", "Stomps" },
+        { "Stomp3double", "Double stomps" },
         { "StormStaticElectricity", "Static electricity buzzing" },
         { "StuckInWeb", "Web rustling" },
         { "StunCrawler", "Thumper stunned" },
@@ -187,6 +191,7 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "Thunder1", "Thunder" },
         { "Thunder2", "Thunder" },
         { "Thunder3", "Thunder" },
+        { "ToiletFlush", "Toilet flushes" },
         { "TunnelIntoGround1", "Earth Leviathan lands" },
         { "TurnTVOff", "TV turns off" },
         { "TurnTVOn", "TV turns on" },
@@ -262,6 +267,13 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
                 (15.900f, "If the crew member is stressed,"),
                 (17.190f, "strike a question like \"How was your day?\""),
                 (19.620f, "Thank you for your cooperation, and happy travels!"),
+            }
+        },
+        {
+            "VoiceHey",
+            new()
+            {
+                (0.0f, "Hey."),
             }
         },
     };

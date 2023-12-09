@@ -191,6 +191,7 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "Thunder1", "Thunder" },
         { "Thunder2", "Thunder" },
         { "Thunder3", "Thunder" },
+        { "ToiletFlush", "Toilet flushes" },
         { "TunnelIntoGround1", "Earth Leviathan lands" },
         { "TurnTVOff", "TV turns off" },
         { "TurnTVOn", "TV turns on" },
@@ -266,6 +267,13 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
                 (15.900f, "If the crew member is stressed,"),
                 (17.190f, "strike a question like \"How was your day?\""),
                 (19.620f, "Thank you for your cooperation, and happy travels!"),
+            }
+        },
+        {
+            "VoiceHey",
+            new()
+            {
+                (0.0f, "Hey."),
             }
         },
     };

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.3 - 2023-12-09
+
+- More subtitles
+
 ## 0.0.2 - 2023-12-07
 
 ### Added

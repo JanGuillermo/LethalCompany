@@ -27,8 +27,8 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
         { "BoomboxMusic4", "Boombox plays" },
         { "BoomboxMusic5Zedfox", "Boombox plays" },
         { "BoomboxStop", "Boombox stops" },
-        { "BreakerBoxClose", "Breaker closes" },
-        { "BreakerBoxOpen", "Breaker opens" },
+        { "BreakerBoxClose", "Breaker opens" },
+        { "BreakerBoxOpen", "Breaker closes" },
         { "BreakerLever1", "Lever flips" },
         { "BreakerLevel2", "Lever flips" },
         { "BreakerLever3", "Lever flips" },
@@ -243,6 +243,15 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
             }
         },
         {
+            "LightningAudio",
+            new()
+            {
+                (0.0f, "[Upbeat music plays]"),
+                (3.020f, "[Lightning strikes]"),
+                (4.300f, "[Laugh track]"),
+            }
+        },
+        {
             "SnareFleaTipChannel",
             new()
             {
@@ -257,15 +266,6 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
                 (15.900f, "If the crew member is stressed,"),
                 (17.190f, "strike a question like \"How was your day?\""),
                 (19.620f, "Thank you for your cooperation, and happy travels!"),
-            }
-        },
-        {
-            "LightningAudio",
-            new()
-            {
-                (0.0f, "[Upbeat music plays]"),
-                (3.020f, "[Lightning strikes]"),
-                (4.300f, "[Laugh track]"),
             }
         },
     };

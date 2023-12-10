@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0 - 2023-12-10
+
+### Added
+
+- Integration with AudibleDistanceLib
+
+### Removed
+
+- Audible distance logic as that's in AudibleDistanceLib now
+
 ## 2.0.2 - 2023-12-07
 
 ### Added

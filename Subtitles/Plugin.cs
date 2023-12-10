@@ -6,12 +6,13 @@ using HarmonyLib;
 namespace Subtitles;
 
 [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
+[BepInDependency("JustJelly.AudibleDistanceLib")]
 [BepInDependency("JustJelly.SubtitlesAPI")]
 public class Plugin : BaseUnityPlugin
 {
     private const string pluginGuid = "JustJelly.Subtitles";
     private const string pluginName = "Subtitles";
-    private const string pluginVersion = "2.0.2";
+    private const string pluginVersion = "2.1.0";
 
     private Harmony harmony;
 

@@ -1,0 +1,9 @@
+{
+    "name": "AudibleDistanceLib",
+    "version_number": "0.0.0",
+    "website_url": "https://github.com/JanGuillermo/LethalCompany/tree/main/AudibleDistanceLib",
+    "description": "A small library for audible distance determination.",
+    "dependencies": [
+        "BepInEx-BepInExPack-5.4.2100"
+    ]
+}

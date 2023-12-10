@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subtitles", "Subtitles\Subtitles.csproj", "{6352801D-ABE0-4668-8D3E-F13B09BB0629}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubtitlesAPI", "SubtitlesAPI\SubtitlesAPI.csproj", "{6E089F6D-0AED-4ECC-9805-F9E0D050F941}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SubtitlesAPI", "SubtitlesAPI\SubtitlesAPI.csproj", "{6E089F6D-0AED-4ECC-9805-F9E0D050F941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudibleDistanceLib", "AudibleDistanceLib\AudibleDistanceLib.csproj", "{C45D39EB-0054-4C35-9E71-B42AD0ED7A3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6E089F6D-0AED-4ECC-9805-F9E0D050F941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E089F6D-0AED-4ECC-9805-F9E0D050F941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E089F6D-0AED-4ECC-9805-F9E0D050F941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45D39EB-0054-4C35-9E71-B42AD0ED7A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45D39EB-0054-4C35-9E71-B42AD0ED7A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45D39EB-0054-4C35-9E71-B42AD0ED7A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45D39EB-0054-4C35-9E71-B42AD0ED7A3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4 - 2023-12-10
+
+- More subtitles for version 45
+
 ## 0.0.3 - 2023-12-09
 
 - More subtitles

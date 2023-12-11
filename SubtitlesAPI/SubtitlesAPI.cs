@@ -13,7 +13,7 @@ public class SubtitlesAPI : BaseUnityPlugin
 {
     private const string pluginGuid = "JustJelly.SubtitlesAPI";
     private const string pluginName = "SubtitlesAPI";
-    private const string pluginVersion = "0.0.4";
+    private const string pluginVersion = "0.0.5";
 
     public static ManualLogSource ManualLogSource;
 
@@ -29,7 +29,7 @@ public class SubtitlesAPI : BaseUnityPlugin
             section: "​Options",
             key: "Locale",
             defaultValue: "en",
-            description: "The localization to use. This uses ISO 639-1 codes for locales. \nCurrent Supported Codes: en");
+            description: "The localization to use. This uses ISO 639-1 codes for locales. \nCurrent Supported Codes: en, zh");
 
         IEnumerable<Type> allLocalizations = GetAllClassesImplementingInterface<ISubtitleLocalization>();
 

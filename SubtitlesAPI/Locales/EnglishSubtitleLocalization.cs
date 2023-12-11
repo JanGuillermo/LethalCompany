@@ -7,7 +7,8 @@ public class EnglishSubtitleLocalization : ISubtitleLocalization
 {
     public string Locale => "en";
 
-    public Dictionary<string, string> Translations => new(StringComparer.OrdinalIgnoreCase) {
+    public Dictionary<string, string> Translations => new(StringComparer.OrdinalIgnoreCase)
+    {
         { "AirHorn1", "Air horn plays" },
         { "AirHornFar", "Distant air horn plays" },
         { "AlertHUD", "Warning alarm" },

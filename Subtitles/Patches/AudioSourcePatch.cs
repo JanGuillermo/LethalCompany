@@ -11,6 +11,7 @@ namespace Subtitles.Patches;
 [HarmonyPatch(typeof(AudioSource))]
 public class AudioSourcePatch
 {
+    /*
     [HarmonyPrefix]
     [HarmonyPatch(nameof(AudioSource.PlayClipAtPoint), new[] { typeof(AudioClip), typeof(Vector3), typeof(float) })]
     public static bool PlayClipAtPoint_Prefix(AudioClip clip, Vector3 position, float volume)
@@ -32,6 +33,7 @@ public class AudioSourcePatch
 
         return false;
     }
+    */
 
     [HarmonyPrefix]
     [HarmonyPatch(nameof(AudioSource.PlayOneShotHelper), new[] { typeof(AudioSource), typeof(AudioClip), typeof(float) })]

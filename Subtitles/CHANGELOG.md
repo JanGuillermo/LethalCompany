@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.1 - 2024-01-01
+
+HAPPY NEW YEAR!
+
+### Removed
+
+- PlayClipAtPoint_Prefix patch temporarily removed
+
 ## 2.1.0 - 2023-12-10
 
 ### Added

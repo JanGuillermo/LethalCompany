@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6 - 2024-01-17
+
+- Add Japanese subtitle localization ([`bd27034`](https://github.com/JanGuillermo/LethalCompany/commit/bd27034d29659bb5d89af51d78b1f0b17e8cba81), [@timber-cr](https://github.com/timber-cr))
+
 ## 0.0.5 - 2023-12-10
 
 - Add Chinese subtitle localization ([`4bf3944`](https://github.com/JanGuillermo/LethalCompany/commit/4bf39442bbcdfb3aaa416fef487bebe8fbfcb7fc), [@S961](https://github.com/S961))

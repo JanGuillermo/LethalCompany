@@ -13,7 +13,7 @@ public class SubtitlesAPI : BaseUnityPlugin
 {
     private const string pluginGuid = "JustJelly.SubtitlesAPI";
     private const string pluginName = "SubtitlesAPI";
-    private const string pluginVersion = "0.0.5";
+    private const string pluginVersion = "0.0.6";
 
     public static ManualLogSource ManualLogSource;
 

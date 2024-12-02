@@ -1,6 +1,6 @@
 {
     "name": "SubtitlesAPI",
-    "version_number": "0.0.6",
+    "version_number": "0.0.7",
     "website_url": "https://github.com/JanGuillermo/LethalCompany/tree/main/SubtitlesAPI",
     "description": "A centralized API for fetching localized subtitles.",
     "dependencies": [

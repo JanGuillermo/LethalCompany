@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.7 - 2024-12-01
+
+- Update English subtitles ([@kalashnikotine](https://github.com/kalashnikotine))
+
 ## 0.0.6 - 2024-01-17
 
 - Add Japanese subtitle localization ([`bd27034`](https://github.com/JanGuillermo/LethalCompany/commit/bd27034d29659bb5d89af51d78b1f0b17e8cba81), [@timber-cr](https://github.com/timber-cr))
